@@ -1,4 +1,7 @@
 ### Francisco Javier Rojas
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9396a9b9995545929cf7509f91e3aa95)](https://app.codacy.com/gh/javier32rojas040506/LAB6-CVDS?utm_source=github.com&utm_medium=referral&utm_content=javier32rojas040506/LAB6-CVDS&utm_campaign=Badge_Grade_Settings)
+
 ### Juan Camilo Rojas
 # LABORATORIO 5 - MVC PRIMEFACES INTRODUCTION
 ### TALLER 5
