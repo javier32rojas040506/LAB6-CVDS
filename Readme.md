@@ -2,7 +2,7 @@
 ### Juan Camilo Rojas
 
 ---
-
+[LINK DE LA APP CALCULADORA](https://lab6-cvds.herokuapp.com/faces/calculadora.xhtml)
 
 # LAB 6
 
@@ -68,3 +68,5 @@ de circle CI (OPCION TRES PUNTOS A LADO DEL PROYECTO >>> ARCHIVO DE CONFIGURACIO
 12. badges
     
     ![](img/badges.png)
+13. LINK APP
+    https://lab6-cvds.herokuapp.com/faces/calculadora.xhtml
