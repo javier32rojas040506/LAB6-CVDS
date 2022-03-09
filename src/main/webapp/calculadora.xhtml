@@ -5,20 +5,24 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
     <style type="text/css">
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&amp;family=Righteous');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&amp;family=Orbitron:wght@700;800;900&amp;family=Righteous&amp;display=swap');
         * {
             font-family: 'Fredoka', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             font-family: 'Righteous', cursive;
         }
         h1 {
             color: white;
-            text-shadow: 0 0 2px black;
+            text-shadow: 0 0 7px rgb(74, 209, 184);
         }
         body {
             min-height: 100vh;
             backdrop-filter: blur(3px);
-            background-image: url("https://media.discordapp.net/attachments/817051913760538674/950945629637574706/composition-book-cover-seamless-pattern-vector-id951797646.png");
-            box-sizing: border-box;
+            background-image: url("https://c.tenor.com/RWJlrcyxAvgAAAAC/makiplays-retrowave.gif"); 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
         .form {
             margin: auto;
@@ -26,28 +30,32 @@
             width: 50%;
             -ms-transform: translateY(50%);
             transform: translateY(50%);
-            border: 5px solid black;
+            background: rgb(250,92,193);
+            background: linear-gradient(90deg, rgba(250,92,193,1) 0%, rgba(87,254,224,1) 50%, rgba(252,191,26,1) 100%);
             border-radius: 20px;
+            border: 6px solid linear-gradient(90deg, rgb(110, 250, 92) 0%, rgb(254, 93, 87) 50%, rgb(26, 41, 252) 100%);
             padding: 10px;
-            background-color: #c3ccd3;
             padding: 20px;
-        }
-        .buttonP .ui-button {
-            background: red;
-            position: relative;
-            border: 3px solid green;
         }
         .output {
             background-color: white;
             padding: 5px;
             border-radius: 6px;
-            border: 2px solid black;
+            border: 2px solid rgb(79, 173, 67);
             display: flex;
+            box-shadow: 0 0 7px rgb(74, 209, 97);
         }
         table {
             width: 100%;
         }
-        .inputS {
+        .inputS{
+            width: 350px;
+            padding-left: 0px;
+            margin: unset;
+            border-radius: 6px;
+            box-shadow: 0 0 7px rgb(74, 209, 97);
+        }
+        .outputS {
             width: 50%;
             margin: auto;
             margin-bottom: 10px;
@@ -59,30 +67,31 @@
         <h1>
             Calculadora
         </h1>
-        <h:panelGrid class="inputS" columns="3">
+        <h:panelGrid class="outputS" columns="3">
             <p:outputLabel value="Datos" style="display: none;"/>
-            <p:inputText type="text" binding="#{input}"/>
+            <p:inputText class="inputS" type="text" binding="#{input}"/>
             <p:commandButton value="Enviar" update="calculadora_form"
-                             actionListener="#{calculatorBB.setNumbers(input.value)}"/>
+                             actionListener="#{calculatorBB.setNumbers(input.value)}" style="border: 3px solid #17598f; border-radius: 6px; box-shadow: 0 0 7px rgb(82, 96, 228);"/>
         </h:panelGrid>
         <h:panelGrid columns="2">
             <p:outputLabel class="output" value="#{calculatorBB.mean}"/>
             <p:commandButton value="Calcular Media" update="calculadora_form"
                              actionListener="#{calculatorBB.calculateMean(input.value)}" 
-                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px;"/>
+                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px; box-shadow: 0 0 7px rgb(82, 96, 228);"/>
             <p:outputLabel class="output" value="#{calculatorBB.mode}"/>
             <p:commandButton styleClass="buttonP" value="Calcular Moda" update="calculadora_form"
                              actionListener="#{calculatorBB.calculateMode(input.value)}"
-                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px;"/>
+                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px; box-shadow: 0 0 7px rgb(82, 96, 228);"/>
             <p:outputLabel class="output" value="#{calculatorBB.standardDev}"/>
             <p:commandButton value="Calcular desviación Estandar" update="calculadora_form"
                              actionListener="#{calculatorBB.calculateStandardDeviation(input.value)}"
-                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px;"/>
+                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px; box-shadow: 0 0 7px rgb(82, 96, 228);"/>
             <p:outputLabel class="output" value="#{calculatorBB.variance}"/>
             <p:commandButton value="Calcular varianza" update="calculadora_form"
                              actionListener="#{calculatorBB.calculateVariance(input.value)}"
-                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px;"/>
-            <p:commandButton value="Restart" update="calculadora_form" actionListener="#{calculatorBB.restart}"/>
+                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px; box-shadow: 0 0 7px rgb(82, 96, 228);"/>
+            <p:commandButton value="Restart" update="calculadora_form" actionListener="#{calculatorBB.restart}"
+                             style="background: rgb(79, 173, 67); border: 3px solid rgb(27, 185, 48); border-radius: 6px; box-shadow: rgb(74, 209, 97);"/>
         </h:panelGrid>
             <ui:repeat var="item" varStatus="status" value="#{calculatorBB.numSubmited}">
                 <h:panelGrid columns="1">
