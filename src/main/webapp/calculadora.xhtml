@@ -3,28 +3,75 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head></h:head>
+<h:head>
+    <style type="text/css">
+        h1 {
+            color: maroon;
+        }
+        body {
+            backdrop-filter: blur(5px);
+            background-image: url("https://media.discordapp.net/attachments/817051913760538674/950945629637574706/composition-book-cover-seamless-pattern-vector-id951797646.png");
+            border-radius: 5px;
+            border-color: black;
+            border: 3px solid black;
+        }
+        .center {
+            margin: auto;
+            width: 50%;
+            border: 3px solid green;
+            border-radius: 6px;
+            padding: 10px;
+            background-color: #c3ccd3;
+        }
+        .buttonP .ui-button {
+            background: red;
+            position: relative;
+            border: 3px solid green;
+        }
+        .output {
+            background-color: white;
+            padding: 5px;
+            border-radius: 6px;
+            border: 2px solid black;
+            display: flex;
+        }
+        table {
+            // border: 2px solid red;
+            width: 100%;
+        }
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        </style>
+</h:head>
 <h:body>
-    <h:form id="calculadora_form">
-        <h:panelGrid columns="3">
+    <h:form id="calculadora_form" class="center">
+        <h1>
+            Calculadora
+        </h1>
+        <h:panelGrid style="width: 50%; margin: auto; margin-bottom: 10px;" columns="3">
             <p:outputLabel value="Datos" style="display: none;"/>
             <p:inputText type="text" binding="#{input}"/>
             <p:commandButton value="enviar" update="calculadora_form"
                              actionListener="#{calculatorBB.setNumbers(input.value)}"/>
         </h:panelGrid>
-        <h:panelGrid columns="2">
-            <p:outputLabel value="#{calculatorBB.mean}"/>
+        <h:panelGrid columns="2" style="margin-right: 0px;">
+            <p:outputLabel class="output" value="#{calculatorBB.mean}"/>
             <p:commandButton value="Calcular Media" update="calculadora_form"
-                             actionListener="#{calculatorBB.calculateMean(input.value)}"/>
-            <p:outputLabel value="#{calculatorBB.mode}"/>
-            <p:commandButton value="Calcular Moda" update="calculadora_form"
-                             actionListener="#{calculatorBB.calculateMode(input.value)}"/>
-            <p:outputLabel value="#{calculatorBB.standardDev}"/>
+                             actionListener="#{calculatorBB.calculateMean(input.value)}" 
+                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px;"/>
+            <p:outputLabel class="output" value="#{calculatorBB.mode}"/>
+            <p:commandButton styleClass="buttonP" value="Calcular Moda" update="calculadora_form"
+                             actionListener="#{calculatorBB.calculateMode(input.value)}"
+                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px;"/>
+            <p:outputLabel class="output" value="#{calculatorBB.standardDev}"/>
             <p:commandButton value="Calcular desviación Estandar" update="calculadora_form"
-                             actionListener="#{calculatorBB.calculateStandardDeviation(input.value)}"/>
-            <p:outputLabel value="#{calculatorBB.variance}"/>
+                             actionListener="#{calculatorBB.calculateStandardDeviation(input.value)}"
+                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px;"/>
+            <p:outputLabel class="output" value="#{calculatorBB.variance}"/>
             <p:commandButton value="Calcular varianza" update="calculadora_form"
-                             actionListener="#{calculatorBB.calculateVariance(input.value)}"/>
+                             actionListener="#{calculatorBB.calculateVariance(input.value)}"
+                             style="background: #2196F3; border: 3px solid #17598f; border-radius: 6px; float: right; margin-right: 0px;"/>
             <p:commandButton value="Restart" update="calculadora_form" actionListener="#{calculatorBB.restart}"/>
         </h:panelGrid>
             <ui:repeat var="item" varStatus="status" value="#{calculatorBB.numSubmited}">
